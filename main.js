@@ -2,19 +2,43 @@ function computeRouterCode(str) {
     let arrStr = str.split("")
     switch (str[0]) {
         case "1":
-            arrStr[3] = String.fromCharCode(str.charCodeAt([3]) + 1)
+            if (arrStr[3] === "m" || arrStr[3] === "M") {
+            	arrStr[3] = "H"
+            } else if (arrStr[3] === "h" || arrStr[3] === "H") {
+            	arrStr[3] = "X"
+            } else {
+            	arrStr[3] = String.fromCharCode(str.charCodeAt([3]) + 1)
+            }
             arrStr[0] = "R"
             break
         case "2":
+        		if (arrStr[3] === "m" || arrStr[3] === "M") {
+            	arrStr[3] = "X"
+            } else if (arrStr[3] === "l" || arrStr[3] === "L") {
+            	arrStr[3] = "H"
+            } else {
             arrStr[3] = String.fromCharCode(str.charCodeAt([3]) + 2)
+            }
             arrStr[0] = "R"
             break
         case "3":
+            if (arrStr[3] === "x" || arrStr[3] === "X") {
+            	arrStr[3] = "H"
+            } else if (arrStr[3] === "h" || arrStr[3] === "H") {
+            	arrStr[3] = "M"
+            } else {
             arrStr[3] = String.fromCharCode(str.charCodeAt([3]) - 1)
+            }
             arrStr[0] = "R"
             break
         case "4":
-            arrStr[3] = String.fromCharCode(str.charCodeAt([3]) - 2)
+            if (arrStr[3] === "x" || arrStr[3] === "X") {
+            	arrStr[3] = "M"
+            } else if (arrStr[3] === "h" || arrStr[3] === "H") {
+            	arrStr[3] = "L"
+            } else {
+            	arrStr[3] = String.fromCharCode(str.charCodeAt([3]) - 2)
+            }
             arrStr[0] = "R"
             break
         case "5":
