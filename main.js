@@ -55,9 +55,10 @@ function computeRouterCode(str) {
         break
       case "8":
         arrStr[2] = String.fromCharCode(str.charCodeAt([2]) + 1)
+        arrStr[0] = "R"
         break
       case "9":
-        arrStr[2] = String.fromCharCode(str.charCodeAt([2]) + 1)
+        arrStr[2] = String.fromCharCode(str.charCodeAt([2]) - 1)
         arrStr[0] = "R"
         break
       default:
