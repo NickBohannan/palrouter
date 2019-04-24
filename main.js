@@ -5,7 +5,7 @@ function translateOne(str) {
   } else if (arrStr[3] === "h" || arrStr[3] === "H") {
     arrStr[3] = "M"
   } else {
-    arrStr[3] = String.fromCharCode(str.charCodeAt([3]) - 1)
+    arrStr[3] = String.fromCharCode(str.charCodeAt(3) - 1)
   }
   arrStr[0] = "1"
   return arrStr.join("").toUpperCase()
@@ -17,8 +17,10 @@ function translateTwo(str) {
     arrStr[3] = "M"
   } else if (arrStr[3] === "h" || arrStr[3] === "H") {
     arrStr[3] = "L"
+  } else if (arrStr[3] === "y" || arrStr[3] === "Y") {
+    arrStr[3] = "H"
   } else {
-    arrStr[3] = String.fromCharCode(str.charCodeAt([3]) - 2)
+    arrStr[3] = String.fromCharCode(str.charCodeAt(3) - 2)
   }
   arrStr[0] = "2"
   return arrStr.join("").toUpperCase()
@@ -31,7 +33,7 @@ function translateThree(str) {
   } else if (arrStr[3] === "h" || arrStr[3] === "H") {
     arrStr[3] = "X"
   } else {
-    arrStr[3] = String.fromCharCode(str.charCodeAt([3]) + 1)
+    arrStr[3] = String.fromCharCode(str.charCodeAt(3) + 1)
   }
   arrStr[0] = "3"
   return arrStr.join("").toUpperCase()
@@ -43,8 +45,10 @@ function translateFour(str) {
     arrStr[3] = "X"
   } else if (arrStr[3] === "l" || arrStr[3] === "L") {
     arrStr[3] = "H"
+  } else if (arrStr[3] === "h" || arrStr[0] === "H") {
+    arrStr[3] = "Y"
   } else {
-    arrStr[3] = String.fromCharCode(str.charCodeAt([3]) + 2)
+    arrStr[3] = String.fromCharCode(str.charCodeAt(3) + 2)
   }
   arrStr[0] = "4"
   return arrStr.join("").toUpperCase()
@@ -52,28 +56,28 @@ function translateFour(str) {
 
 function translateSix(str) {
   let arrStr = str.split("")
-  arrStr[1] = String.fromCharCode(str.charCodeAt([1]) - 1)
+  arrStr[1] = String.fromCharCode(str.charCodeAt(1) - 1)
   arrStr[0] = "6"
   return arrStr.join("").toUpperCase()
 }
 
 function translateSeven(str) {
   let arrStr = str.split("")
-  arrStr[1] = String.fromCharCode(str.charCodeAt([1]) + 1)
+  arrStr[1] = String.fromCharCode(str.charCodeAt(1) + 1)
   arrStr[0] = "7"
   return arrStr.join("").toUpperCase()
 }
 
 function translateEight(str) {
   let arrStr = str.split("")
-  arrStr[2] = String.fromCharCode(str.charCodeAt([2]) - 1)
+  arrStr[2] = String.fromCharCode(str.charCodeAt(2) - 1)
   arrStr[0] = "8"
   return arrStr.join("").toUpperCase()
 }
 
 function translateNine(str) {
   let arrStr = str.split("")
-  arrStr[2] = String.fromCharCode(str.charCodeAt([2]) + 1)
+  arrStr[2] = String.fromCharCode(str.charCodeAt(2) + 1)
   arrStr[0] = "9"
   return arrStr.join("").toUpperCase()
 }
@@ -87,7 +91,7 @@ function computeRouterCode(str) {
       } else if (arrStr[3] === "h" || arrStr[3] === "H") {
         arrStr[3] = "X"
       } else {
-        arrStr[3] = String.fromCharCode(str.charCodeAt([3]) + 1)
+        arrStr[3] = String.fromCharCode(str.charCodeAt(3) + 1)
       }
       arrStr[0] = "R"
       break
@@ -97,7 +101,7 @@ function computeRouterCode(str) {
       } else if (arrStr[3] === "l" || arrStr[3] === "L") {
         arrStr[3] = "H"
       } else {
-        arrStr[3] = String.fromCharCode(str.charCodeAt([3]) + 2)
+        arrStr[3] = String.fromCharCode(str.charCodeAt(3) + 2)
       }
       arrStr[0] = "R"
       break
@@ -107,7 +111,7 @@ function computeRouterCode(str) {
       } else if (arrStr[3] === "h" || arrStr[3] === "H") {
         arrStr[3] = "M"
       } else {
-        arrStr[3] = String.fromCharCode(str.charCodeAt([3]) - 1)
+        arrStr[3] = String.fromCharCode(str.charCodeAt(3) - 1)
       }
       arrStr[0] = "R"
       break
@@ -117,7 +121,7 @@ function computeRouterCode(str) {
       } else if (arrStr[3] === "h" || arrStr[3] === "H") {
         arrStr[3] = "L"
       } else {
-        arrStr[3] = String.fromCharCode(str.charCodeAt([3]) - 2)
+        arrStr[3] = String.fromCharCode(str.charCodeAt(3) - 2)
       }
       arrStr[0] = "R"
       break
@@ -125,19 +129,19 @@ function computeRouterCode(str) {
       arrStr[0] = "L"
       break
     case "6":
-      arrStr[1] = String.fromCharCode(str.charCodeAt([1]) + 1)
+      arrStr[1] = String.fromCharCode(str.charCodeAt(1) + 1)
       arrStr[0] = "R"
       break
     case "7":
-      arrStr[1] = String.fromCharCode(str.charCodeAt([1]) - 1)
+      arrStr[1] = String.fromCharCode(str.charCodeAt(1) - 1)
       arrStr[0] = "R"
       break
     case "8":
-      arrStr[2] = String.fromCharCode(str.charCodeAt([2]) + 1)
+      arrStr[2] = String.fromCharCode(str.charCodeAt(2) + 1)
       arrStr[0] = "R"
       break
     case "9":
-      arrStr[2] = String.fromCharCode(str.charCodeAt([2]) - 1)
+      arrStr[2] = String.fromCharCode(str.charCodeAt(2) - 1)
       arrStr[0] = "R"
       break
     default:
@@ -150,7 +154,6 @@ let sub = document.querySelector('#sub')
 
 sub.addEventListener('click', () => {
   let codeVal = document.querySelector('#code').value
-  console.log(codeVal)
   if (document.querySelector("#result")) {
     document.body.removeChild(document.querySelector("#result"))
   }
@@ -171,7 +174,6 @@ sub.addEventListener('click', () => {
     resultNodeArray.push(translateNine(codeVal))
     resultNode = document.createTextNode(resultNodeArray.join(", "))
   }
-  console.log(resultNode)
   result.appendChild(resultNode)
   document.body.appendChild(result)
 })
